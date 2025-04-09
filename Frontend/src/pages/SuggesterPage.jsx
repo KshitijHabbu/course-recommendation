@@ -1,6 +1,7 @@
 "use client"
 
-import Link from "next/link"
+import { Link } from "react-router-dom";
+
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"

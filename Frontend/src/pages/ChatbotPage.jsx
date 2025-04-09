@@ -36,7 +36,7 @@ function ChatbotPage() {
 
     try {
       // API call to backend
-      const response = await fetch("/api/chatbot/message", {
+      const response = await fetch("http://localhost:5000/api/chatbot/message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,6 +46,11 @@ function ChatbotPage() {
           history: messages.map(({ role, content }) => ({ role, content })),
         }),
       })
+      if (!response.ok) {
+        const errorText = await response.text(); // Log raw response for debugging
+        console.error("Error response from server:", errorText);
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       const data = await response.json()
 

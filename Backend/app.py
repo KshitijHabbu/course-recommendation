@@ -4,7 +4,7 @@ from flask import Flask, jsonify
 from dotenv import load_dotenv
 import logging
 from flask import request
-
+from flask_cors import CORS
 
 # Import blueprints
 from blueprints.chatbot_bp import chatbot_bp
@@ -19,6 +19,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - [%
 log = logging.getLogger(__name__) # Get logger for app context
 
 app = Flask(__name__)
+CORS(app)
 
 # Load secret key for Flask session management (used implicitly by session)
 # IMPORTANT: Use a strong, randomly generated key in production, set via environment variable
