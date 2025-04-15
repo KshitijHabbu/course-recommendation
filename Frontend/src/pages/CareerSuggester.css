@@ -1,0 +1,328 @@
+.career-suggester-page {
+    padding: 2rem;
+  }
+  
+  .suggester-loading,
+  .suggester-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+  }
+  
+  .suggester-loading .spin {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    animation: spin 1s linear infinite;
+  }
+  
+  .suggester-error h2 {
+    color: #ef4444;
+    margin-bottom: 1rem;
+  }
+  
+  .restart-button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .restart-button:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .suggester-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  /* Question Section */
+  .question-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .progress-bar {
+    height: 8px;
+    background-color: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+  }
+  
+  .progress-text {
+    text-align: center;
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+  
+  .question-card {
+    background-color: white;
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .question-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--foreground);
+  }
+  
+  .question-card textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 120px;
+    font-family: var(--font-sans);
+    transition: border-color 0.2s ease;
+  }
+  
+  .question-card textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+  }
+  
+  .question-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+  
+  .back-button,
+  .next-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .back-button {
+    background-color: transparent;
+    border: 1px solid var(--border);
+    color: #64748b;
+  }
+  
+  .back-button:hover {
+    background-color: #f8fafc;
+  }
+  
+  .next-button {
+    background-color: var(--primary);
+    border: none;
+    color: white;
+  }
+  
+  .next-button:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .next-button:disabled {
+    background-color: #cbd5e1;
+    cursor: not-allowed;
+  }
+  
+  .question-tips {
+    background-color: #f8fafc;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+  }
+  
+  .question-tips h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--foreground);
+  }
+  
+  .question-tips ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
+  
+  .question-tips li {
+    margin-bottom: 0.5rem;
+    color: #334155;
+  }
+  
+  /* Results Section */
+  .results-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  .results-header {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .results-header h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--foreground);
+  }
+  
+  .results-summary {
+    font-size: 1.1rem;
+    color: #64748b;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .career-suggestions {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .career-card {
+    display: flex;
+    gap: 1.5rem;
+    background-color: white;
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .career-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  .career-number {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  
+  .career-content {
+    flex: 1;
+  }
+  
+  .career-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--foreground);
+  }
+  
+  .career-content p {
+    color: #334155;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .career-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .explore-button,
+  .courses-button {
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .explore-button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+  }
+  
+  .explore-button:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .courses-button {
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+  }
+  
+  .courses-button:hover {
+    background-color: rgba(56, 189, 248, 0.1);
+  }
+  
+  .results-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .save-button {
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: var(--radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .save-button:hover {
+    background-color: rgba(56, 189, 248, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .career-suggester-page {
+      padding: 1rem;
+    }
+  
+    .question-card {
+      padding: 1.5rem;
+    }
+  
+    .career-card {
+      flex-direction: column;
+      padding: 1.5rem;
+    }
+  
+    .career-actions {
+      flex-direction: column;
+    }
+  
+    .results-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

@@ -1,64 +1,84 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-import LandingPage from "./pages/LandingPage"
-import ChatbotPage from "./pages/ChatbotPage"
-import SuggesterPage from "./pages/SuggesterPage"
-import RecommenderPage from "./pages/RecommenderPage"
-import LoginModal from "./components/LoginModal"
-import SignupModal from "./components/SignupModal"
-import { ThemeProvider } from "./context/ThemeContext"
 import { AuthProvider } from "./context/AuthContext"
-import "./App.css"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
+// Layouts
+import MainLayout from "./components/layout/MainLayout"
+
+// Pages
+import Home from "./pages/Home"
+import Login from "./pages/Login"
+import Signup from "./pages/Signup"
+import Dashboard from "./pages/Dashboard"
+import Chatbot from "./pages/Chatbot"
+import CareerSuggester from "./pages/CareerSuggester"
+import CourseRecommender from "./pages/CourseRecommender"
+import NotFound from "./pages/NotFound"
+
+// Components
+import GuideTour from "./components/onboarding/GuideTour"
 
 function App() {
-  const [showLoginModal, setShowLoginModal] = useState(false)
-  const [showSignupModal, setShowSignupModal] = useState(false)
+  const [showTour, setShowTour] = useState(false)
+
+  useEffect(() => {
+    // Check if it's the user's first visit
+    const hasVisitedBefore = localStorage.getItem("hasVisitedBefore")
+    if (!hasVisitedBefore) {
+      setShowTour(true)
+      localStorage.setItem("hasVisitedBefore", "true")
+    }
+  }, [])
 
   return (
-    <Router>
-      <ThemeProvider>
-        <AuthProvider>
-          <div className="app-container">
-            <Header onLoginClick={() => setShowLoginModal(true)} onSignupClick={() => setShowSignupModal(true)} />
-
-            <main className="main-content">
-              <Routes>
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/chat" element={<ChatbotPage />} />
-                <Route path="/career-suggester" element={<SuggesterPage />} />
-                <Route path="/job-recommender" element={<RecommenderPage />} />
-              </Routes>
-            </main>
-
-            <Footer />
-
-            {showLoginModal && (
-              <LoginModal
-                onClose={() => setShowLoginModal(false)}
-                onSignupClick={() => {
-                  setShowLoginModal(false)
-                  setShowSignupModal(true)
-                }}
-              />
-            )}
-
-            {showSignupModal && (
-              <SignupModal
-                onClose={() => setShowSignupModal(false)}
-                onLoginClick={() => {
-                  setShowSignupModal(false)
-                  setShowLoginModal(true)
-                }}
-              />
-            )}
-          </div>
-        </AuthProvider>
-      </ThemeProvider>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <ToastContainer position="top-right" autoClose={3000} />
+        {showTour && <GuideTour onClose={() => setShowTour(false)} />}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/dashboard"
+            element={
+              <MainLayout>
+                <Dashboard />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/chatbot"
+            element={
+              <MainLayout>
+                <Chatbot />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/career-suggester"
+            element={
+              <MainLayout>
+                <CareerSuggester />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/course-recommender"
+            element={
+              <MainLayout>
+                <CourseRecommender />
+              </MainLayout>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   )
 }
 
