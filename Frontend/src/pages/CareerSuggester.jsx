@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { FiCompass, FiArrowRight, FiArrowLeft, FiLoader } from "react-icons/fi"
+import { FiCompass, FiArrowRight, FiArrowLeft, FiLoader, FiAlertCircle } from "react-icons/fi"
 import { startSuggestion, submitSuggesterAnswer } from "../services/api"
 import { toast } from "react-toastify"
 import "./CareerSuggester.css"
@@ -15,20 +15,30 @@ const CareerSuggester = () => {
   const [currentAnswer, setCurrentAnswer] = useState("")
   const [suggestions, setSuggestions] = useState(null)
   const [submitting, setSubmitting] = useState(false)
+  const [connectionError, setConnectionError] = useState(false)
 
   useEffect(() => {
     const fetchFirstQuestion = async () => {
       try {
+        setLoading(true)
+        setError(null)
+        setConnectionError(false)
+
         const response = await startSuggestion()
+
         if (response.success) {
           setCurrentQuestion(response.next_question)
           setCurrentQuestionIndex(response.current_question_index)
           setAnswersSoFar(response.answers_so_far)
         } else {
           setError("Failed to start the career suggestion process.")
+          if (response.error && response.error.includes("Network error")) {
+            setConnectionError(true)
+          }
         }
       } catch (error) {
         setError("Network error. Please try again later.")
+        setConnectionError(true)
         console.error("Error fetching first question:", error)
       } finally {
         setLoading(false)
@@ -45,6 +55,7 @@ const CareerSuggester = () => {
     }
 
     setSubmitting(true)
+    setError(null)
 
     try {
       const response = await submitSuggesterAnswer(currentAnswer, currentQuestionIndex, answersSoFar)
@@ -61,9 +72,13 @@ const CareerSuggester = () => {
         }
       } else {
         setError("Failed to submit your answer. Please try again.")
+        if (response.error && response.error.includes("Network error")) {
+          setConnectionError(true)
+        }
       }
     } catch (error) {
       setError("Network error. Please try again later.")
+      setConnectionError(true)
       console.error("Error submitting answer:", error)
     } finally {
       setSubmitting(false)
@@ -78,6 +93,7 @@ const CareerSuggester = () => {
     setAnswersSoFar({})
     setCurrentAnswer("")
     setSuggestions(null)
+    setConnectionError(false)
 
     // Fetch the first question again
     startSuggestion()
@@ -88,10 +104,14 @@ const CareerSuggester = () => {
           setAnswersSoFar(response.answers_so_far)
         } else {
           setError("Failed to restart the career suggestion process.")
+          if (response.error && response.error.includes("Network error")) {
+            setConnectionError(true)
+          }
         }
       })
       .catch((error) => {
         setError("Network error. Please try again later.")
+        setConnectionError(true)
         console.error("Error restarting:", error)
       })
       .finally(() => {
@@ -111,8 +131,15 @@ const CareerSuggester = () => {
   if (error) {
     return (
       <div className="suggester-error">
+        <FiAlertCircle className="error-icon" />
         <h2>Oops! Something went wrong</h2>
         <p>{error}</p>
+        {connectionError && (
+          <div className="connection-error-message">
+            <p>It looks like there might be an issue connecting to the backend server.</p>
+            <p>Please make sure the Flask server is running on port 5000.</p>
+          </div>
+        )}
         <button onClick={handleRestart} className="restart-button">
           Try Again
         </button>

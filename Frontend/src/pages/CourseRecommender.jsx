@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { FiBookOpen, FiSearch, FiFilter, FiStar, FiClock, FiDollarSign, FiLoader } from "react-icons/fi"
+import { FiBookOpen, FiSearch, FiFilter, FiStar, FiClock, FiDollarSign, FiLoader, FiAlertCircle } from "react-icons/fi"
 import { startRecommendation, submitRecommenderSurvey } from "../services/api"
 import { toast } from "react-toastify"
 import "./CourseRecommender.css"
@@ -17,6 +17,8 @@ const CourseRecommender = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [recommendations, setRecommendations] = useState([])
   const [showRecommendations, setShowRecommendations] = useState(false)
+  const [error, setError] = useState(null)
+  const [connectionError, setConnectionError] = useState(false)
 
   const handleSearch = async (e) => {
     e.preventDefault()
@@ -27,6 +29,8 @@ const CourseRecommender = () => {
     }
 
     setIsSearching(true)
+    setError(null)
+    setConnectionError(false)
 
     try {
       const response = await startRecommendation(searchKeywords, searchLocation)
@@ -47,11 +51,19 @@ const CourseRecommender = () => {
           toast.info("No questions available for this search. Please try different keywords.")
         }
       } else {
-        toast.error(response.error || "Failed to start recommendation process.")
+        setError(response.error || "Failed to start recommendation process.")
+        if (response.error && response.error.includes("Network error")) {
+          setConnectionError(true)
+          toast.error("Connection error. Please check if the backend server is running.")
+        } else {
+          toast.error(response.error || "Failed to start recommendation process.")
+        }
       }
     } catch (error) {
       console.error("Error starting recommendation:", error)
-      toast.error("Network error. Please try again later.")
+      setError("Network error. Please try again later.")
+      setConnectionError(true)
+      toast.error("Network error. Please check if the backend server is running.")
     } finally {
       setIsSearching(false)
     }
@@ -74,6 +86,7 @@ const CourseRecommender = () => {
     }
 
     setIsSubmitting(true)
+    setError(null)
 
     try {
       const response = await submitRecommenderSurvey(requestId, answers)
@@ -83,11 +96,19 @@ const CourseRecommender = () => {
         setShowRecommendations(true)
         window.scrollTo(0, 0)
       } else {
-        toast.error(response.error || "Failed to get recommendations.")
+        setError(response.error || "Failed to get recommendations.")
+        if (response.error && response.error.includes("Network error")) {
+          setConnectionError(true)
+          toast.error("Connection error. Please check if the backend server is running.")
+        } else {
+          toast.error(response.error || "Failed to get recommendations.")
+        }
       }
     } catch (error) {
       console.error("Error submitting survey:", error)
-      toast.error("Network error. Please try again later.")
+      setError("Network error. Please try again later.")
+      setConnectionError(true)
+      toast.error("Network error. Please check if the backend server is running.")
     } finally {
       setIsSubmitting(false)
     }
@@ -102,6 +123,39 @@ const CourseRecommender = () => {
     setAnswers({})
     setRecommendations([])
     setShowRecommendations(false)
+    setError(null)
+    setConnectionError(false)
+  }
+
+  if (error) {
+    return (
+      <div className="course-recommender-page">
+        <div className="page-header">
+          <div className="header-icon">
+            <FiBookOpen />
+          </div>
+          <div className="header-content">
+            <h1>Course Finder</h1>
+            <p>Discover the perfect courses to help you acquire the skills you need</p>
+          </div>
+        </div>
+
+        <div className="recommender-error">
+          <FiAlertCircle className="error-icon" />
+          <h2>Oops! Something went wrong</h2>
+          <p>{error}</p>
+          {connectionError && (
+            <div className="connection-error-message">
+              <p>It looks like there might be an issue connecting to the backend server.</p>
+              <p>Please make sure the Flask server is running on port 5000.</p>
+            </div>
+          )}
+          <button onClick={handleReset} className="restart-button">
+            Try Again
+          </button>
+        </div>
+      </div>
+    )
   }
 
   return (

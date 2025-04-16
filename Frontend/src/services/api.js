@@ -10,6 +10,21 @@ const handleResponse = async (response) => {
   return data
 }
 
+// Helper function to handle API errors
+const handleApiError = (error) => {
+  console.error("API Error:", error)
+  if (error.message === "Failed to fetch") {
+    return {
+      success: false,
+      error: "Network error: Unable to connect to the server. Please check if the backend server is running.",
+    }
+  }
+  return {
+    success: false,
+    error: error.toString(),
+  }
+}
+
 // Chatbot API
 export const sendChatMessage = async (message, history = []) => {
   try {
@@ -20,8 +35,7 @@ export const sendChatMessage = async (message, history = []) => {
     })
     return handleResponse(response)
   } catch (error) {
-    console.error("API Error:", error)
-    throw error
+    return handleApiError(error)
   }
 }
 
@@ -34,8 +48,7 @@ export const startSuggestion = async () => {
     })
     return handleResponse(response)
   } catch (error) {
-    console.error("API Error:", error)
-    throw error
+    return handleApiError(error)
   }
 }
 
@@ -44,12 +57,15 @@ export const submitSuggesterAnswer = async (answer, currentQuestionIndex, answer
     const response = await fetch(`${API_BASE_URL}/suggester/answer`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ answer, current_question_index: currentQuestionIndex, answers_so_far: answersSoFar }),
+      body: JSON.stringify({
+        answer,
+        current_question_index: currentQuestionIndex,
+        answers_so_far: answersSoFar,
+      }),
     })
     return handleResponse(response)
   } catch (error) {
-    console.error("API Error:", error)
-    throw error
+    return handleApiError(error)
   }
 }
 
@@ -63,8 +79,7 @@ export const startRecommendation = async (keywords, location = "India") => {
     })
     return handleResponse(response)
   } catch (error) {
-    console.error("API Error:", error)
-    throw error
+    return handleApiError(error)
   }
 }
 
@@ -77,7 +92,6 @@ export const submitRecommenderSurvey = async (requestId, answers) => {
     })
     return handleResponse(response)
   } catch (error) {
-    console.error("API Error:", error)
-    throw error
+    return handleApiError(error)
   }
 }

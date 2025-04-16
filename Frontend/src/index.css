@@ -64,6 +64,25 @@ button {
   padding: 4rem 0;
 }
 
+/* Backend Status Alert */
+.backend-status-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 0.75rem;
+  text-align: center;
+  z-index: 9999;
+  font-size: 0.9rem;
+}
+
+.backend-status-alert p {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {

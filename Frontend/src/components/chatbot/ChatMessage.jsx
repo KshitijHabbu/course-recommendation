@@ -1,16 +1,17 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { FiUser } from "react-icons/fi"
+import { FiUser, FiAlertCircle } from "react-icons/fi"
 import "./ChatMessage.css"
 
 const ChatMessage = ({ message, isLast }) => {
   const [displayedContent, setDisplayedContent] = useState("")
   const [isTyping, setIsTyping] = useState(false)
   const isUser = message.role === "user"
+  const isError = message.isError
 
   useEffect(() => {
-    if (isLast && !isUser) {
+    if (isLast && !isUser && !isError) {
       setIsTyping(true)
       let i = 0
       const content = message.content
@@ -28,10 +29,10 @@ const ChatMessage = ({ message, isLast }) => {
     } else {
       setDisplayedContent(message.content)
     }
-  }, [message, isLast, isUser])
+  }, [message, isLast, isUser, isError])
 
   return (
-    <div className={`chat-message ${isUser ? "user" : "assistant"}`}>
+    <div className={`chat-message ${isUser ? "user" : "assistant"} ${isError ? "error" : ""}`}>
       <div className="message-avatar">
         {isUser ? (
           <div className="user-avatar">
@@ -39,7 +40,7 @@ const ChatMessage = ({ message, isLast }) => {
           </div>
         ) : (
           <div className="assistant-avatar">
-            <img src="/ai-avatar.svg" alt="AI Assistant" />
+            {isError ? <FiAlertCircle /> : <img src="/ai-avatar.svg" alt="AI Assistant" />}
           </div>
         )}
       </div>

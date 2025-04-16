@@ -24,6 +24,7 @@ import GuideTour from "./components/onboarding/GuideTour"
 
 function App() {
   const [showTour, setShowTour] = useState(false)
+  const [backendStatus, setBackendStatus] = useState("checking")
 
   useEffect(() => {
     // Check if it's the user's first visit
@@ -32,6 +33,23 @@ function App() {
       setShowTour(true)
       localStorage.setItem("hasVisitedBefore", "true")
     }
+
+    // Check if backend is running
+    const checkBackendStatus = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/")
+        if (response.ok) {
+          setBackendStatus("connected")
+        } else {
+          setBackendStatus("error")
+        }
+      } catch (error) {
+        console.error("Backend connection error:", error)
+        setBackendStatus("error")
+      }
+    }
+
+    checkBackendStatus()
   }, [])
 
   return (
@@ -39,6 +57,16 @@ function App() {
       <Router>
         <ToastContainer position="top-right" autoClose={3000} />
         {showTour && <GuideTour onClose={() => setShowTour(false)} />}
+
+        {backendStatus === "error" && (
+          <div className="backend-status-alert">
+            <p>
+              <strong>Backend Connection Error:</strong> Unable to connect to the Flask server. Please make sure it's
+              running on port 5000.
+            </p>
+          </div>
+        )}
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

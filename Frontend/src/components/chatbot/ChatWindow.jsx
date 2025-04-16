@@ -1,9 +1,10 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { FiSend, FiMessageCircle, FiLoader } from "react-icons/fi"
+import { FiSend, FiMessageCircle, FiLoader, FiAlertCircle } from "react-icons/fi"
 import ChatMessage from "./ChatMessage"
 import { sendChatMessage } from "../../services/api"
+import { toast } from "react-toastify"
 import "./ChatWindow.css"
 
 const ChatWindow = () => {
@@ -15,6 +16,7 @@ const ChatWindow = () => {
   ])
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
   const messagesEndRef = useRef(null)
   const inputRef = useRef(null)
 
@@ -39,6 +41,7 @@ const ChatWindow = () => {
     setMessages((prev) => [...prev, userMessage])
     setInput("")
     setIsLoading(true)
+    setError(null)
 
     try {
       // Convert messages to the format expected by the API
@@ -61,13 +64,17 @@ const ChatWindow = () => {
       }
     } catch (error) {
       console.error("Error sending message:", error)
+      setError(error.toString())
 
       const errorMessage = {
         role: "assistant",
-        content: "I'm sorry, I'm having trouble connecting to the server. Please try again in a moment.",
+        content:
+          "I'm sorry, I'm having trouble connecting to the server. Please check if the backend is running and try again.",
+        isError: true,
       }
 
       setMessages((prev) => [...prev, errorMessage])
+      toast.error("Connection error. Please check if the backend server is running.")
     } finally {
       setIsLoading(false)
       setTimeout(() => {
@@ -96,6 +103,13 @@ const ChatWindow = () => {
             <div className="dot"></div>
             <div className="dot"></div>
             <div className="dot"></div>
+          </div>
+        )}
+
+        {error && !isLoading && (
+          <div className="connection-error">
+            <FiAlertCircle />
+            <p>Connection error. Please check if the backend server is running.</p>
           </div>
         )}
 
