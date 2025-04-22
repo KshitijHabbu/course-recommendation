@@ -1,5 +1,6 @@
 # app.py
 import os
+from flask_cors import CORS
 from flask import Flask, jsonify
 from dotenv import load_dotenv
 import logging
@@ -19,6 +20,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - [%
 log = logging.getLogger(__name__) # Get logger for app context
 
 app = Flask(__name__)
+
+# ✅ Enable CORS for all routes (you can restrict origins in production)
+CORS(app)
 
 # Load secret key for Flask session management (used implicitly by session)
 # IMPORTANT: Use a strong, randomly generated key in production, set via environment variable
@@ -88,4 +92,5 @@ if __name__ == '__main__':
     # Set debug=False for production
     # host='0.0.0.0' makes it accessible on your network (use '127.0.0.1' for local only)
     log.info("Starting Flask development server...")
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='127.0.0.1', port=5000)
+

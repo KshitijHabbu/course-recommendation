@@ -37,7 +37,8 @@ function App() {
     // Check if backend is running
     const checkBackendStatus = async () => {
       try {
-        const response = await fetch("http://localhost:5000/")
+        const response = await fetch("/api/")
+
         if (response.ok) {
           setBackendStatus("connected")
         } else {
