@@ -1,5 +1,5 @@
 .course-recommender-page {
-  padding: 2rem;
+  padding: 1.5rem;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -17,31 +17,33 @@
   justify-content: center;
   min-height: 60vh;
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .recommender-error .error-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #ef4444;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .recommender-error h2 {
   color: #ef4444;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.5rem;
 }
 
 .connection-error-message {
   background-color: #fee2e2;
   border-radius: var(--radius);
-  padding: 1rem;
-  margin: 1rem 0;
+  padding: 0.8rem;
+  margin: 0.8rem 0;
   max-width: 500px;
 }
 
 .connection-error-message p {
   color: #b91c1c;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
 }
 
 .connection-error-message p:last-child {
@@ -58,15 +60,15 @@
 .search-card {
   background-color: white;
   border-radius: var(--radius);
-  padding: 2.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   width: 100%;
   max-width: 700px;
 }
 
 .search-card h2 {
-  font-size: 1.75rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
   color: var(--foreground);
   text-align: center;
 }
@@ -74,14 +76,15 @@
 .search-card > p {
   text-align: center;
   color: #64748b;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
 }
 
 .search-form {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  margin-bottom: 2rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .search-input-group {
@@ -90,7 +93,7 @@
 
 .search-icon {
   position: absolute;
-  left: 1rem;
+  left: 0.8rem;
   top: 50%;
   transform: translateY(-50%);
   color: #64748b;
@@ -99,10 +102,10 @@
 .search-input-group input,
 .search-input-group select {
   width: 100%;
-  padding: 1rem 1rem 1rem 3rem;
+  padding: 0.8rem 0.8rem 0.8rem 2.5rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: border-color 0.2s ease;
 }
 
@@ -114,19 +117,19 @@
 }
 
 .search-button {
-  padding: 1rem;
+  padding: 0.8rem;
   background-color: var(--primary);
   color: white;
   border: none;
   border-radius: var(--radius);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .search-button:hover {
@@ -143,24 +146,24 @@
 }
 
 .popular-searches h3 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
   color: var(--foreground);
 }
 
 .search-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.6rem;
   justify-content: center;
 }
 
 .search-tags button {
   background-color: #f1f5f9;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 2rem;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #334155;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -175,55 +178,56 @@
 .survey-section {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .survey-header {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .survey-header h2 {
-  font-size: 1.75rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
   color: var(--foreground);
 }
 
 .survey-header p {
   color: #64748b;
+  font-size: 0.95rem;
 }
 
 .survey-questions {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .question-item {
   background-color: white;
   border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .question-item h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--primary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
 .question-item p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
   color: var(--foreground);
 }
 
 .question-item input[type="text"] {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.6rem 0.8rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: border-color 0.2s ease;
 }
 
@@ -236,7 +240,7 @@
 .rating-input,
 .yes-no-input {
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   flex-wrap: wrap;
 }
 
@@ -245,8 +249,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   cursor: pointer;
@@ -256,7 +260,7 @@
 
 .yes-no-input label {
   width: auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
 }
 
 .rating-input label.selected,
@@ -275,14 +279,15 @@
 .survey-actions {
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .back-button,
 .submit-button {
-  padding: 0.75rem 1.5rem;
+  padding: 0.6rem 1.25rem;
   border-radius: var(--radius);
   font-weight: 500;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -303,7 +308,7 @@
   color: white;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .submit-button:hover {
@@ -319,39 +324,40 @@
 .recommendations-section {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   animation: fadeIn 0.5s ease;
 }
 
 .recommendations-header {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .recommendations-header h2 {
-  font-size: 1.75rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
   color: var(--foreground);
 }
 
 .recommendations-header p {
   color: #64748b;
+  font-size: 0.95rem;
 }
 
 .course-filters {
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .filter-button {
   background-color: transparent;
   border: 1px solid var(--border);
-  padding: 0.5rem 1.25rem;
+  padding: 0.4rem 1rem;
   border-radius: 2rem;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #64748b;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -371,31 +377,31 @@
 .course-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .course-card {
   background-color: white;
   border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .course-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .course-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .course-header h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--foreground);
   flex: 1;
 }
@@ -403,27 +409,27 @@
 .match-score {
   background-color: rgba(56, 189, 248, 0.1);
   color: var(--primary);
-  padding: 0.5rem 0.75rem;
+  padding: 0.4rem 0.6rem;
   border-radius: var(--radius);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   white-space: nowrap;
 }
 
 .match-score span {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .course-provider {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
 }
 
 .course-provider img {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -431,81 +437,85 @@
 .course-provider span {
   color: #64748b;
   font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .course-description {
   color: #334155;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   line-height: 1.6;
+  font-size: 0.9rem;
 }
 
 .course-details {
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .detail-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   color: #64748b;
+  font-size: 0.9rem;
 }
 
 .course-skills {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .course-skills h4 {
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
   color: var(--foreground);
 }
 
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .skill-tag {
   background-color: #f1f5f9;
-  padding: 0.35rem 0.75rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 2rem;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #334155;
 }
 
 .course-match {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
+  margin-bottom: 1.25rem;
+  padding: 0.8rem;
   background-color: #f8fafc;
   border-radius: var(--radius);
   border-left: 3px solid var(--primary);
 }
 
 .course-match h4 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
   color: var(--foreground);
 }
 
 .course-match p {
   color: #334155;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.6;
 }
 
 .course-actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .enroll-button,
 .save-button {
-  padding: 0.75rem 1.25rem;
+  padding: 0.6rem 1rem;
   border-radius: var(--radius);
   font-weight: 500;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -533,37 +543,39 @@
 
 .no-courses {
   text-align: center;
-  padding: 3rem;
+  padding: 2.5rem;
   background-color: white;
   border-radius: var(--radius);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .no-courses h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  margin-bottom: 0.8rem;
   color: var(--foreground);
 }
 
 .no-courses p {
   color: #64748b;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
 }
 
 .recommendations-actions {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: 1.25rem;
+  margin-top: 0.8rem;
 }
 
 .restart-button {
-  padding: 0.75rem 1.5rem;
+  padding: 0.6rem 1.25rem;
   background-color: var(--primary);
   color: white;
   border: none;
   border-radius: var(--radius);
   font-weight: 500;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -600,12 +612,12 @@
   }
 
   .search-card {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 
   .course-details {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.6rem;
   }
 
   .course-actions {
@@ -615,5 +627,6 @@
   .recommendations-actions {
     flex-direction: column;
     align-items: center;
+    gap: 0.6rem;
   }
 }

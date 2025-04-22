@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import { AuthProvider } from "./context/AuthContext"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -21,6 +21,24 @@ import NotFound from "./pages/NotFound"
 
 // Components
 import GuideTour from "./components/onboarding/GuideTour"
+import { useAuth } from "./hooks/useAuth"
+
+// Auth Route Component
+const ProtectedRoute = ({ children }) => {
+  const { user, loading } = useAuth()
+
+  if (loading)
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p>Loading...</p>
+      </div>
+    )
+
+  if (!user) return <Navigate to="/login" replace />
+
+  return children
+}
 
 function App() {
   const [showTour, setShowTour] = useState(false)
@@ -38,7 +56,6 @@ function App() {
     const checkBackendStatus = async () => {
       try {
         const response = await fetch("/api/")
-
         if (response.ok) {
           setBackendStatus("connected")
         } else {
@@ -75,33 +92,41 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <MainLayout>
-                <Dashboard />
-              </MainLayout>
+              <ProtectedRoute>
+                <MainLayout>
+                  <Dashboard />
+                </MainLayout>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/chatbot"
             element={
-              <MainLayout>
-                <Chatbot />
-              </MainLayout>
+              <ProtectedRoute>
+                <MainLayout>
+                  <Chatbot />
+                </MainLayout>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/career-suggester"
             element={
-              <MainLayout>
-                <CareerSuggester />
-              </MainLayout>
+              <ProtectedRoute>
+                <MainLayout>
+                  <CareerSuggester />
+                </MainLayout>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/course-recommender"
             element={
-              <MainLayout>
-                <CourseRecommender />
-              </MainLayout>
+              <ProtectedRoute>
+                <MainLayout>
+                  <CourseRecommender />
+                </MainLayout>
+              </ProtectedRoute>
             }
           />
           <Route path="*" element={<NotFound />} />

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useAuth } from "../../hooks/useAuth"
 import { FiMenu, FiX, FiUser, FiLogOut } from "react-icons/fi"
 import "./Header.css"
@@ -11,10 +11,11 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false)
   const { user, logout } = useAuth()
   const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 30) {
         setScrolled(true)
       } else {
         setScrolled(false)
@@ -33,6 +34,11 @@ const Header = () => {
     setIsMenuOpen(false)
   }
 
+  const handleLogout = () => {
+    logout()
+    navigate("/login")
+  }
+
   return (
     <header className={`header ${scrolled ? "scrolled" : ""}`}>
       <div className="header-container">
@@ -43,34 +49,42 @@ const Header = () => {
 
         <nav className={`nav-menu ${isMenuOpen ? "active" : ""}`}>
           <ul>
-            <li>
-              <Link to="/dashboard" className={location.pathname === "/dashboard" ? "active" : ""} onClick={closeMenu}>
-                Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link to="/chatbot" className={location.pathname === "/chatbot" ? "active" : ""} onClick={closeMenu}>
-                Career Chat
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/career-suggester"
-                className={location.pathname === "/career-suggester" ? "active" : ""}
-                onClick={closeMenu}
-              >
-                Career Suggester
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/course-recommender"
-                className={location.pathname === "/course-recommender" ? "active" : ""}
-                onClick={closeMenu}
-              >
-                Course Finder
-              </Link>
-            </li>
+            {user && (
+              <>
+                <li>
+                  <Link
+                    to="/dashboard"
+                    className={location.pathname === "/dashboard" ? "active" : ""}
+                    onClick={closeMenu}
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/chatbot" className={location.pathname === "/chatbot" ? "active" : ""} onClick={closeMenu}>
+                    Career Chat
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/career-suggester"
+                    className={location.pathname === "/career-suggester" ? "active" : ""}
+                    onClick={closeMenu}
+                  >
+                    Career Suggester
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/course-recommender"
+                    className={location.pathname === "/course-recommender" ? "active" : ""}
+                    onClick={closeMenu}
+                  >
+                    Course Finder
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
 
@@ -81,7 +95,7 @@ const Header = () => {
                 <FiUser />
                 <span>{user.name || "User"}</span>
               </div>
-              <button className="logout-btn" onClick={logout}>
+              <button className="logout-btn" onClick={handleLogout}>
                 <FiLogOut />
                 <span>Logout</span>
               </button>

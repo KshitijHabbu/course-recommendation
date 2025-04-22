@@ -1,5 +1,5 @@
 .career-suggester-page {
-  padding: 2rem;
+  padding: 1.5rem;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -12,38 +12,40 @@
   justify-content: center;
   min-height: 60vh;
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .suggester-loading .spin {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--primary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   animation: spin 1s linear infinite;
 }
 
 .suggester-error .error-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #ef4444;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .suggester-error h2 {
   color: #ef4444;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.5rem;
 }
 
 .connection-error-message {
   background-color: #fee2e2;
   border-radius: var(--radius);
-  padding: 1rem;
-  margin: 1rem 0;
+  padding: 0.8rem;
+  margin: 0.8rem 0;
   max-width: 500px;
 }
 
 .connection-error-message p {
   color: #b91c1c;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
 }
 
 .connection-error-message p:last-child {
@@ -51,13 +53,14 @@
 }
 
 .restart-button {
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
+  margin-top: 1.25rem;
+  padding: 0.6rem 1.25rem;
   background-color: var(--primary);
   color: white;
   border: none;
   border-radius: var(--radius);
   font-weight: 500;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -75,13 +78,13 @@
 .question-section {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .progress-bar {
-  height: 8px;
+  height: 6px;
   background-color: #e2e8f0;
-  border-radius: 4px;
+  border-radius: 3px;
   overflow: hidden;
 }
 
@@ -94,29 +97,29 @@
 .progress-text {
   text-align: center;
   color: #64748b;
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
 }
 
 .question-card {
   background-color: white;
   border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
 .question-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
   color: var(--foreground);
 }
 
 .question-card textarea {
   width: 100%;
-  padding: 1rem;
+  padding: 0.8rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  font-size: 1rem;
+  font-size: 0.95rem;
   resize: vertical;
   min-height: 120px;
   font-family: var(--font-sans);
@@ -132,17 +135,18 @@
 .question-actions {
   display: flex;
   justify-content: space-between;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .back-button,
 .next-button {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  gap: 0.4rem;
+  padding: 0.6rem 1.25rem;
   border-radius: var(--radius);
   font-weight: 500;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -175,47 +179,48 @@
 .question-tips {
   background-color: #f8fafc;
   border-radius: var(--radius);
-  padding: 1.5rem;
+  padding: 1.25rem;
   border: 1px solid var(--border);
 }
 
 .question-tips h3 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
   color: var(--foreground);
 }
 
 .question-tips ul {
   list-style-type: disc;
-  padding-left: 1.5rem;
+  padding-left: 1.25rem;
 }
 
 .question-tips li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   color: #334155;
+  font-size: 0.9rem;
 }
 
 /* Results Section */
 .results-section {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   animation: fadeIn 0.5s ease;
 }
 
 .results-header {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .results-header h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 1.75rem;
+  margin-bottom: 0.8rem;
   color: var(--foreground);
 }
 
 .results-summary {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #64748b;
   max-width: 700px;
   margin: 0 auto;
@@ -224,27 +229,27 @@
 .career-suggestions {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .career-card {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.25rem;
   background-color: white;
   border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .career-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .career-number {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   background-color: var(--primary);
   color: white;
   border-radius: 50%;
@@ -252,7 +257,7 @@
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   flex-shrink: 0;
 }
 
@@ -261,27 +266,29 @@
 }
 
 .career-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  margin-bottom: 0.6rem;
   color: var(--foreground);
 }
 
 .career-content p {
   color: #334155;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 .career-actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .explore-button,
 .courses-button {
-  padding: 0.75rem 1.25rem;
+  padding: 0.6rem 1rem;
   border-radius: var(--radius);
   font-weight: 500;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -309,17 +316,18 @@
 .results-actions {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: 1.25rem;
+  margin-top: 0.8rem;
 }
 
 .save-button {
-  padding: 0.75rem 1.5rem;
+  padding: 0.6rem 1.25rem;
   background-color: transparent;
   border: 1px solid var(--primary);
   color: var(--primary);
   border-radius: var(--radius);
   font-weight: 500;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -334,12 +342,12 @@
   }
 
   .question-card {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 
   .career-card {
     flex-direction: column;
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 
   .career-actions {
@@ -349,5 +357,6 @@
   .results-actions {
     flex-direction: column;
     align-items: center;
+    gap: 0.8rem;
   }
 }

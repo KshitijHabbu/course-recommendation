@@ -16,6 +16,13 @@ const Chatbot = () => {
     "What's the career outlook for AI specialists in India over the next 5 years?",
   ]
 
+  // Add click handler for suggested prompts
+  const handleSampleQuestionClick = (question) => {
+    if (window.handleSuggestedPrompt) {
+      window.handleSuggestedPrompt(question)
+    }
+  }
+
   return (
     <div className="chatbot-page">
       <div className="page-header">
@@ -57,7 +64,7 @@ const Chatbot = () => {
             <ul>
               {sampleQuestions.map((question, index) => (
                 <li key={index}>
-                  <button>{question}</button>
+                  <button onClick={() => handleSampleQuestionClick(question)}>{question}</button>
                 </li>
               ))}
             </ul>
