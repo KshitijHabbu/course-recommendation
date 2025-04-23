@@ -1,5 +1,5 @@
 .course-recommender-page {
-  padding: 1.5rem;
+  padding: var(--space-6);
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -17,33 +17,33 @@
   justify-content: center;
   min-height: 60vh;
   text-align: center;
-  padding: 1.5rem;
+  padding: var(--space-6);
 }
 
 .recommender-error .error-icon {
   font-size: 2.5rem;
   color: #ef4444;
-  margin-bottom: 0.8rem;
+  margin-bottom: var(--space-3);
 }
 
 .recommender-error h2 {
   color: #ef4444;
-  margin-bottom: 0.8rem;
-  font-size: 1.5rem;
+  margin-bottom: var(--space-3);
+  font-size: var(--text-xl);
 }
 
 .connection-error-message {
   background-color: #fee2e2;
   border-radius: var(--radius);
-  padding: 0.8rem;
-  margin: 0.8rem 0;
+  padding: var(--space-3);
+  margin: var(--space-3) 0;
   max-width: 500px;
 }
 
 .connection-error-message p {
   color: #b91c1c;
-  margin-bottom: 0.4rem;
-  font-size: 0.9rem;
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
 }
 
 .connection-error-message p:last-child {
@@ -60,15 +60,15 @@
 .search-card {
   background-color: white;
   border-radius: var(--radius);
-  padding: 2rem;
+  padding: var(--space-8);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   width: 100%;
   max-width: 700px;
 }
 
 .search-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.6rem;
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2);
   color: var(--foreground);
   text-align: center;
 }
@@ -76,15 +76,15 @@
 .search-card > p {
   text-align: center;
   color: #64748b;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
+  margin-bottom: var(--space-6);
+  font-size: var(--text-base);
 }
 
 .search-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
 }
 
 .search-input-group {
@@ -93,7 +93,7 @@
 
 .search-icon {
   position: absolute;
-  left: 0.8rem;
+  left: var(--space-3);
   top: 50%;
   transform: translateY(-50%);
   color: #64748b;
@@ -102,10 +102,10 @@
 .search-input-group input,
 .search-input-group select {
   width: 100%;
-  padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-10);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   transition: border-color 0.2s ease;
 }
 
@@ -117,28 +117,30 @@
 }
 
 .search-button {
-  padding: 0.8rem;
+  padding: var(--space-3);
   background-color: var(--primary);
   color: white;
   border: none;
   border-radius: var(--radius);
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
+  gap: var(--space-2);
 }
 
 .search-button:hover {
   background-color: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
 .search-button:disabled {
   background-color: #cbd5e1;
   cursor: not-allowed;
+  transform: none;
 }
 
 .popular-searches {
@@ -146,24 +148,24 @@
 }
 
 .popular-searches h3 {
-  font-size: 1rem;
-  margin-bottom: 0.8rem;
+  font-size: var(--text-base);
+  margin-bottom: var(--space-3);
   color: var(--foreground);
 }
 
 .search-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: var(--space-2);
   justify-content: center;
 }
 
 .search-tags button {
   background-color: #f1f5f9;
   border: none;
-  padding: 0.4rem 0.8rem;
+  padding: var(--space-2) var(--space-3);
   border-radius: 2rem;
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   color: #334155;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -172,62 +174,63 @@
 .search-tags button:hover {
   background-color: #e2e8f0;
   color: var(--primary);
+  transform: translateY(-1px);
 }
 
 /* Survey Section */
 .survey-section {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-6);
 }
 
 .survey-header {
   text-align: center;
-  margin-bottom: 0.8rem;
+  margin-bottom: var(--space-3);
 }
 
 .survey-header h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.6rem;
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2);
   color: var(--foreground);
 }
 
 .survey-header p {
   color: #64748b;
-  font-size: 0.95rem;
+  font-size: var(--text-base);
 }
 
 .survey-questions {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-6);
 }
 
 .question-item {
   background-color: white;
   border-radius: var(--radius);
-  padding: 1.5rem;
+  padding: var(--space-6);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .question-item h3 {
-  font-size: 1rem;
+  font-size: var(--text-base);
   color: var(--primary);
-  margin-bottom: 0.6rem;
+  margin-bottom: var(--space-2);
 }
 
 .question-item p {
-  font-size: 1.1rem;
-  margin-bottom: 1.25rem;
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-5);
   color: var(--foreground);
 }
 
 .question-item input[type="text"] {
   width: 100%;
-  padding: 0.6rem 0.8rem;
+  padding: var(--space-2) var(--space-3);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   transition: border-color 0.2s ease;
 }
 
@@ -240,7 +243,7 @@
 .rating-input,
 .yes-no-input {
   display: flex;
-  gap: 0.8rem;
+  gap: var(--space-3);
   flex-wrap: wrap;
 }
 
@@ -260,7 +263,7 @@
 
 .yes-no-input label {
   width: auto;
-  padding: 0 1.25rem;
+  padding: 0 var(--space-5);
 }
 
 .rating-input label.selected,
@@ -268,6 +271,17 @@
   background-color: var(--primary);
   color: white;
   border-color: var(--primary);
+}
+
+.rating-input label:hover,
+.yes-no-input label:hover {
+  border-color: var(--primary);
+  background-color: rgba(56, 189, 248, 0.1);
+}
+
+.rating-input label.selected:hover,
+.yes-no-input label.selected:hover {
+  background-color: var(--primary);
 }
 
 .rating-input input,
@@ -279,15 +293,15 @@
 .survey-actions {
   display: flex;
   justify-content: space-between;
-  margin-top: 1.5rem;
+  margin-top: var(--space-6);
 }
 
 .back-button,
 .submit-button {
-  padding: 0.6rem 1.25rem;
+  padding: var(--space-2) var(--space-5);
   border-radius: var(--radius);
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -308,56 +322,58 @@
   color: white;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: var(--space-2);
 }
 
 .submit-button:hover {
   background-color: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
 .submit-button:disabled {
   background-color: #cbd5e1;
   cursor: not-allowed;
+  transform: none;
 }
 
 /* Recommendations Section */
 .recommendations-section {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-6);
   animation: fadeIn 0.5s ease;
 }
 
 .recommendations-header {
   text-align: center;
-  margin-bottom: 0.8rem;
+  margin-bottom: var(--space-3);
 }
 
 .recommendations-header h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.6rem;
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2);
   color: var(--foreground);
 }
 
 .recommendations-header p {
   color: #64748b;
-  font-size: 0.95rem;
+  font-size: var(--text-base);
 }
 
 .course-filters {
   display: flex;
-  gap: 0.8rem;
+  gap: var(--space-3);
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 0.8rem;
+  margin-bottom: var(--space-3);
 }
 
 .filter-button {
   background-color: transparent;
   border: 1px solid var(--border);
-  padding: 0.4rem 1rem;
+  padding: var(--space-2) var(--space-4);
   border-radius: 2rem;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: #64748b;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -377,13 +393,13 @@
 .course-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-6);
 }
 
 .course-card {
   background-color: white;
   border-radius: var(--radius);
-  padding: 1.5rem;
+  padding: var(--space-6);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -397,34 +413,35 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 0.8rem;
+  margin-bottom: var(--space-3);
 }
 
 .course-header h3 {
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   color: var(--foreground);
   flex: 1;
+  margin-bottom: 0;
 }
 
 .match-score {
   background-color: rgba(56, 189, 248, 0.1);
   color: var(--primary);
-  padding: 0.4rem 0.6rem;
+  padding: var(--space-2) var(--space-2);
   border-radius: var(--radius);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   white-space: nowrap;
 }
 
 .match-score span {
-  font-size: 1rem;
+  font-size: var(--text-base);
 }
 
 .course-provider {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
 }
 
 .course-provider img {
@@ -437,85 +454,87 @@
 .course-provider span {
   color: #64748b;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
 }
 
 .course-description {
   color: #334155;
-  margin-bottom: 1.25rem;
+  margin-bottom: var(--space-5);
   line-height: 1.6;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
 }
 
 .course-details {
   display: flex;
-  gap: 1.25rem;
-  margin-bottom: 1.25rem;
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
 }
 
 .detail-item {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: var(--space-2);
   color: #64748b;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
 }
 
 .course-skills {
-  margin-bottom: 1.25rem;
+  margin-bottom: var(--space-5);
 }
 
 .course-skills h4 {
-  font-size: 0.95rem;
-  margin-bottom: 0.6rem;
+  font-size: var(--text-base);
+  margin-bottom: var(--space-2);
   color: var(--foreground);
 }
 
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: var(--space-2);
 }
 
 .skill-tag {
   background-color: #f1f5f9;
-  padding: 0.3rem 0.6rem;
+  padding: var(--space-1) var(--space-2);
   border-radius: 2rem;
-  font-size: 0.8rem;
+  font-size: var(--text-xs);
   color: #334155;
 }
 
 .course-match {
-  margin-bottom: 1.25rem;
-  padding: 0.8rem;
+  margin-bottom: var(--space-5);
+  padding: var(--space-3);
   background-color: #f8fafc;
   border-radius: var(--radius);
   border-left: 3px solid var(--primary);
 }
 
 .course-match h4 {
-  font-size: 0.95rem;
-  margin-bottom: 0.4rem;
+  font-size: var(--text-base);
+  margin-bottom: var(--space-2);
   color: var(--foreground);
 }
 
 .course-match p {
   color: #334155;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   line-height: 1.6;
+  margin-bottom: 0;
 }
 
 .course-actions {
   display: flex;
-  gap: 0.8rem;
+  gap: var(--space-3);
 }
 
 .enroll-button,
 .save-button {
-  padding: 0.6rem 1rem;
+  padding: var(--space-2) var(--space-4);
   border-radius: var(--radius);
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -529,6 +548,7 @@
 
 .enroll-button:hover {
   background-color: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
 .save-button {
@@ -539,49 +559,51 @@
 
 .save-button:hover {
   background-color: rgba(56, 189, 248, 0.1);
+  transform: translateY(-2px);
 }
 
 .no-courses {
   text-align: center;
-  padding: 2.5rem;
+  padding: var(--space-10);
   background-color: white;
   border-radius: var(--radius);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .no-courses h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.8rem;
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-3);
   color: var(--foreground);
 }
 
 .no-courses p {
   color: #64748b;
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
+  margin-bottom: var(--space-6);
+  font-size: var(--text-sm);
 }
 
 .recommendations-actions {
   display: flex;
   justify-content: center;
-  gap: 1.25rem;
-  margin-top: 0.8rem;
+  gap: var(--space-5);
+  margin-top: var(--space-3);
 }
 
 .restart-button {
-  padding: 0.6rem 1.25rem;
+  padding: var(--space-2) var(--space-5);
   background-color: var(--primary);
   color: white;
   border: none;
   border-radius: var(--radius);
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .restart-button:hover {
   background-color: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
 .spin {
@@ -608,16 +630,16 @@
 
 @media (max-width: 768px) {
   .course-recommender-page {
-    padding: 1rem;
+    padding: var(--space-4);
   }
 
   .search-card {
-    padding: 1.25rem;
+    padding: var(--space-5);
   }
 
   .course-details {
     flex-direction: column;
-    gap: 0.6rem;
+    gap: var(--space-2);
   }
 
   .course-actions {
@@ -627,6 +649,20 @@
   .recommendations-actions {
     flex-direction: column;
     align-items: center;
-    gap: 0.6rem;
+    gap: var(--space-2);
+  }
+}
+
+@media (max-width: 576px) {
+  .search-card h2 {
+    font-size: var(--text-lg);
+  }
+
+  .question-item p {
+    font-size: var(--text-base);
+  }
+
+  .course-header h3 {
+    font-size: var(--text-lg);
   }
 }

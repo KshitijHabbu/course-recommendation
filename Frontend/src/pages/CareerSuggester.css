@@ -1,5 +1,5 @@
 .career-suggester-page {
-  padding: 1.5rem;
+  padding: var(--space-6);
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -12,40 +12,40 @@
   justify-content: center;
   min-height: 60vh;
   text-align: center;
-  padding: 1.5rem;
+  padding: var(--space-6);
 }
 
 .suggester-loading .spin {
   font-size: 2rem;
   color: var(--primary);
-  margin-bottom: 0.8rem;
+  margin-bottom: var(--space-3);
   animation: spin 1s linear infinite;
 }
 
 .suggester-error .error-icon {
   font-size: 2.5rem;
   color: #ef4444;
-  margin-bottom: 0.8rem;
+  margin-bottom: var(--space-3);
 }
 
 .suggester-error h2 {
   color: #ef4444;
-  margin-bottom: 0.8rem;
-  font-size: 1.5rem;
+  margin-bottom: var(--space-3);
+  font-size: var(--text-xl);
 }
 
 .connection-error-message {
   background-color: #fee2e2;
   border-radius: var(--radius);
-  padding: 0.8rem;
-  margin: 0.8rem 0;
+  padding: var(--space-3);
+  margin: var(--space-3) 0;
   max-width: 500px;
 }
 
 .connection-error-message p {
   color: #b91c1c;
-  margin-bottom: 0.4rem;
-  font-size: 0.9rem;
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
 }
 
 .connection-error-message p:last-child {
@@ -53,20 +53,21 @@
 }
 
 .restart-button {
-  margin-top: 1.25rem;
-  padding: 0.6rem 1.25rem;
+  margin-top: var(--space-5);
+  padding: var(--space-2) var(--space-5);
   background-color: var(--primary);
   color: white;
   border: none;
   border-radius: var(--radius);
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .restart-button:hover {
   background-color: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
 .suggester-container {
@@ -78,7 +79,7 @@
 .question-section {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-6);
 }
 
 .progress-bar {
@@ -97,29 +98,29 @@
 .progress-text {
   text-align: center;
   color: #64748b;
-  font-size: 0.85rem;
-  margin-top: 0.4rem;
+  font-size: var(--text-sm);
+  margin-top: var(--space-2);
 }
 
 .question-card {
   background-color: white;
   border-radius: var(--radius);
-  padding: 1.5rem;
+  padding: var(--space-6);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
 .question-card h2 {
-  font-size: 1.25rem;
-  margin-bottom: 1.25rem;
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-5);
   color: var(--foreground);
 }
 
 .question-card textarea {
   width: 100%;
-  padding: 0.8rem;
+  padding: var(--space-3);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   resize: vertical;
   min-height: 120px;
   font-family: var(--font-sans);
@@ -135,18 +136,18 @@
 .question-actions {
   display: flex;
   justify-content: space-between;
-  margin-top: 1.25rem;
+  margin-top: var(--space-5);
 }
 
 .back-button,
 .next-button {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.6rem 1.25rem;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5);
   border-radius: var(--radius);
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -169,58 +170,65 @@
 
 .next-button:hover {
   background-color: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
 .next-button:disabled {
   background-color: #cbd5e1;
   cursor: not-allowed;
+  transform: none;
 }
 
 .question-tips {
   background-color: #f8fafc;
   border-radius: var(--radius);
-  padding: 1.25rem;
+  padding: var(--space-5);
   border: 1px solid var(--border);
 }
 
 .question-tips h3 {
-  font-size: 1rem;
-  margin-bottom: 0.8rem;
+  font-size: var(--text-base);
+  margin-bottom: var(--space-3);
   color: var(--foreground);
 }
 
 .question-tips ul {
   list-style-type: disc;
-  padding-left: 1.25rem;
+  padding-left: var(--space-5);
+  margin-bottom: 0;
 }
 
 .question-tips li {
-  margin-bottom: 0.4rem;
+  margin-bottom: var(--space-2);
   color: #334155;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
+}
+
+.question-tips li:last-child {
+  margin-bottom: 0;
 }
 
 /* Results Section */
 .results-section {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-6);
   animation: fadeIn 0.5s ease;
 }
 
 .results-header {
   text-align: center;
-  margin-bottom: 0.8rem;
+  margin-bottom: var(--space-3);
 }
 
 .results-header h2 {
-  font-size: 1.75rem;
-  margin-bottom: 0.8rem;
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-3);
   color: var(--foreground);
 }
 
 .results-summary {
-  font-size: 1rem;
+  font-size: var(--text-base);
   color: #64748b;
   max-width: 700px;
   margin: 0 auto;
@@ -229,15 +237,15 @@
 .career-suggestions {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: var(--space-5);
 }
 
 .career-card {
   display: flex;
-  gap: 1.25rem;
+  gap: var(--space-5);
   background-color: white;
   border-radius: var(--radius);
-  padding: 1.5rem;
+  padding: var(--space-6);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -257,7 +265,7 @@
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: var(--text-lg);
   flex-shrink: 0;
 }
 
@@ -266,29 +274,29 @@
 }
 
 .career-content h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.6rem;
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2);
   color: var(--foreground);
 }
 
 .career-content p {
   color: #334155;
-  margin-bottom: 1.25rem;
+  margin-bottom: var(--space-5);
   line-height: 1.6;
-  font-size: 0.95rem;
+  font-size: var(--text-base);
 }
 
 .career-actions {
   display: flex;
-  gap: 0.8rem;
+  gap: var(--space-3);
 }
 
 .explore-button,
 .courses-button {
-  padding: 0.6rem 1rem;
+  padding: var(--space-2) var(--space-4);
   border-radius: var(--radius);
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -301,6 +309,7 @@
 
 .explore-button:hover {
   background-color: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
 .courses-button {
@@ -311,43 +320,45 @@
 
 .courses-button:hover {
   background-color: rgba(56, 189, 248, 0.1);
+  transform: translateY(-2px);
 }
 
 .results-actions {
   display: flex;
   justify-content: center;
-  gap: 1.25rem;
-  margin-top: 0.8rem;
+  gap: var(--space-5);
+  margin-top: var(--space-3);
 }
 
 .save-button {
-  padding: 0.6rem 1.25rem;
+  padding: var(--space-2) var(--space-5);
   background-color: transparent;
   border: 1px solid var(--primary);
   color: var(--primary);
   border-radius: var(--radius);
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .save-button:hover {
   background-color: rgba(56, 189, 248, 0.1);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
   .career-suggester-page {
-    padding: 1rem;
+    padding: var(--space-4);
   }
 
   .question-card {
-    padding: 1.25rem;
+    padding: var(--space-5);
   }
 
   .career-card {
     flex-direction: column;
-    padding: 1.25rem;
+    padding: var(--space-5);
   }
 
   .career-actions {
@@ -357,6 +368,20 @@
   .results-actions {
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 576px) {
+  .question-card h2 {
+    font-size: var(--text-lg);
+  }
+
+  .career-content h3 {
+    font-size: var(--text-lg);
+  }
+
+  .results-header h2 {
+    font-size: var(--text-xl);
   }
 }
