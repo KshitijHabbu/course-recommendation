@@ -163,9 +163,9 @@ const CareerSuggester = () => {
         {!suggestions ? (
           <div className="question-section">
             <div className="progress-bar">
-              <div className="progress-fill" style={{ width: `${(currentQuestionIndex / 6) * 100}%` }}></div>
+              <div className="progress-fill" style={{ width: `${((currentQuestionIndex + 1) / 11) * 100}%` }}></div>
             </div>
-            <div className="progress-text">Question {currentQuestionIndex + 1} of 6</div>
+            <div className="progress-text">Question {currentQuestionIndex + 1} of 11</div>
 
             <div className="question-card">
               <h2>{currentQuestion?.text}</h2>
