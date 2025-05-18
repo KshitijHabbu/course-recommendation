@@ -1,4 +1,12 @@
-# services/llm_service.py
+"""
+Functions:
+- get_career_advice(user_message, history)
+- get_career_suggestions_from_answers(answers)
+- analyze_jobs_and_generate_questions(job_listings)
+- get_job_recommendations(job_listings, answers)
+
+All interact with Groq LLM for intelligent text or structured responses.
+"""
 import os
 import json
 import time

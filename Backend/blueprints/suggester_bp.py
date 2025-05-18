@@ -1,4 +1,31 @@
-# blueprints/suggester_bp.py (Improved)
+"""
+GET /api/suggester/start
+    ➤ Returns the first question in the static Q&A career survey.
+
+POST /api/suggester/answer
+    ➤ Accepts an answer and returns the next question or final suggestions.
+
+Request Body:
+{
+    "answer": "I love problem-solving and coding",
+    "current_question_index": 0,
+    "answers_so_far": {}
+}
+
+Response (final):
+{
+    "success": true,
+    "suggestions": {
+        "summary": "You enjoy analytical problem solving...",
+        "suggestions": [
+            {"career": "Software Engineer", "reason": "Your love for coding..."},
+            ...
+        ]
+    },
+    "final_answers": {...},
+    "next_question": null
+}
+"""
 
 from flask import Blueprint, request, jsonify
 from services.llm_service import get_career_suggestions_from_answers

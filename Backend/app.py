@@ -1,4 +1,24 @@
-# app.py
+"""
+GET /
+    ➤ Health check endpoint.
+    ➤ Returns service status, version, LLM availability, and available endpoints.
+
+Response Example:
+{
+    "service": "Career Guidance API",
+    "status": "Running",
+    "version": "1.0.0",
+    "llm_status": "Initialized",
+    "endpoints": {
+        "chatbot": "/api/chatbot/message (POST)",
+        "suggester_start": "/api/suggester/start (GET)",
+        "suggester_answer": "/api/suggester/answer (POST)",
+        "recommender_start": "/api/recommender/start (POST)",
+        "recommender_submit": "/api/recommender/submit (POST)"
+    }
+}
+"""
+
 import os
 from flask_cors import CORS
 from flask import Flask, jsonify

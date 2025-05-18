@@ -1,4 +1,24 @@
-# blueprints/chatbot_bp.py
+"""
+POST /api/chatbot/message
+    ➤ Handles user messages for career advice via LLM.
+
+Request Body:
+{
+    "message": "What career should I pursue after B.Tech CSE?",
+    "history": [
+        {"role": "user", "content": "Hi"},
+        {"role": "assistant", "content": "Hello! How can I help you today?"}
+    ]
+}
+
+Response:
+{
+    "success": true,
+    "reply": "Based on your CSE background, consider software development...",
+    "history_update": [...]
+}
+"""
+
 from flask import Blueprint, request, jsonify
 from services.llm_service import get_career_advice
 import logging

@@ -1,4 +1,51 @@
-# blueprints/recommender_bp.py
+"""
+POST /api/recommender/start
+    ➤ Initiates job recommendation process based on keywords & location.
+
+Request:
+{
+    "keywords": "Python Developer",
+    "location": "Bangalore"
+}
+
+Response:
+{
+    "success": true,
+    "job_count": 4,
+    "questions": [
+        {"id": "q_skill_python", "text": "Rate your experience with Python..."},
+        ...
+    ],
+    "request_id": "uuid-1234"
+}
+
+POST /api/recommender/submit
+    ➤ Submits answers to questions and returns job recommendations.
+
+Request:
+{
+    "request_id": "uuid-1234",
+    "answers": {
+        "q_skill_python": "5",
+        "q_interest_data": "4"
+    }
+}
+
+Response:
+{
+    "success": true,
+    "recommendations": [
+        {
+            "title": "Data Scientist",
+            "company": "HealthAnalytics AI",
+            "match_score": 0.87,
+            "reason": "Strong Python and data interest..."
+        },
+        ...
+    ]
+}
+"""
+
 from flask import Blueprint, request, jsonify
 from services.job_search_service import search_online_jobs # Using static data
 from services.llm_service import analyze_jobs_and_generate_questions, get_job_recommendations

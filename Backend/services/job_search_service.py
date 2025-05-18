@@ -1,4 +1,7 @@
-# services/job_search_service.py
+"""
+Function: search_online_jobs(keywords, location)
+    ➤ Returns filtered jobs based on keywords and location from static dataset.
+"""
 import random
 import time
 import logging # Use logging
