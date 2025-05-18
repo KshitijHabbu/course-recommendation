@@ -49,8 +49,8 @@ course-recommendation-backend/
 
 1. **Clone the repo**
 ```bash
-git clone https://github.com/yourusername/career-ai-backend.git
-cd career-ai-backend
+git clone https://github.com/KshitijHabbu/course-recommendation.git
+cd Backend
 ```
 
 2. **Install dependencies**
@@ -79,6 +79,7 @@ python app.py
 Flask
 python-dotenv
 groq
+requests
 ```
 
 ---
