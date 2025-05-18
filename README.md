@@ -1,7 +1,7 @@
 
 #  Course Recommendation
 
-A Flask-based backend that provides AI-powered career guidance through a chatbot, a Q&A suggester, and a job recommender.
+Course Recommendation is a Flask-based API system that provides personalized course recommendations using Large Language Models (LLMs). It analyzes user inputs—either through chat or structured Q&A—and suggests relevant career paths and courses to help users build the skills needed for those roles. The system combines static data with AI reasoning (via Groq’s LLaMA3 model) to offer accurate, India-focused guidance for career and learning development.
 
 ---
 
